@@ -1,0 +1,24 @@
+{
+  "name": "employeeportal",
+  "version": "1.0.0",
+  "description": "Employees Data",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michaeldpenha/employeePortal.git"
+  },
+  "dependencies":{
+    "express" : "*",
+    "body-parser" : "*",
+    "mongoose" : "*"
+  },
+  "author": "Michael Dpenha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaeldpenha/employeePortal.git/issues"
+  },
+  "homepage": "https://github.com/michaeldpenha/employeePortal.git#readme"
+}
