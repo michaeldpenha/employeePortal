@@ -10,10 +10,11 @@
     "type": "git",
     "url": "https://github.com/michaeldpenha/employeePortal.git"
   },
-  "dependencies":{
-    "express" : "*",
-    "body-parser" : "*",
-    "mongoose" : "*"
+  "dependencies": {
+    "body-parser": "*",
+    "express": "*",
+    "mongodb": "^3.0.1",
+    "mongoose": "*"
   },
   "author": "Michael Dpenha",
   "license": "ISC",
