@@ -6,8 +6,7 @@ const mongoose = require("mongoose");
 let employeesSchema = mongoose.Schema({
     "first_name" : {
          type : String
-    },
-    "created_date":  {type: Date, default: Date.now}
+    }
 });
 
 let EmployeesData = module.exports = mongoose.model('employees',employeesSchema);
