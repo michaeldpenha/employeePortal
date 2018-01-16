@@ -1,1 +1,28 @@
-test
+<div class="table-responsive">          
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Designation</th>
+        <th>Experience</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-if="employees.length > 0" ng-repeat= "employee in employees">
+        <td>{{employee['first_name']}}</td>
+        <td>{{employee['last_name']}}</td>
+        <td>{{employee['designation']}}</td>
+        <td>{{employee['experience']}}</td>
+        <td>
+            <button ng-click="deleteEmployeeData(employee)">Delete</button>
+        </td>
+      </tr>
+      <tr>
+          <td ng-if="employees.length == 0">No Results Found</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>

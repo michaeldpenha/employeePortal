@@ -1,34 +1,25 @@
-app.controller('employeesCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams){
-	$scope.getBooks = function(){
-		$http.get('/api/books').success(function(response){
-			$scope.books = response;
+app.controller('employeesCtrl', ['$scope', '$http', '$location', '$routeParams','httpService', function($scope, $http, $location, $routeParams,httpService){
+	$scope.initEmployeesCtrl = function(){
+		$scope.getEmployeesData();	
+	}
+	$scope.getEmployeesData = function(){
+		$scope.employees = [];
+		httpService.apiCall('GET','/api/employees').then(function(response){
+			if(response.status === 200 && response.data){
+				$scope.employees = response.data;
+			}
+		},function(error){
+			console.log(error);
 		});
 	}
-
-	$scope.getBook = function(){
-		var id = $routeParams.id;
-		$http.get('/api/books/'+id).success(function(response){
-			$scope.book = response;
+	$scope.deleteEmployeeData = function(data){
+		httpService.apiCall('DELETE','/api/employee/'+data["first_name"]).then(function(response){
+			if(response.status === 200 && response.data){
+				$scope.getEmployeesData();
+			}
+		},function(error){
+			console.log(error);
 		});
 	}
-
-	$scope.addBook = function(){
-		console.log($scope.book);
-		$http.post('/api/books/', $scope.book).success(function(response){
-			window.location.href='#/books';
-		});
-	}
-
-	$scope.updateBook = function(){
-		var id = $routeParams.id;
-		$http.put('/api/books/'+id, $scope.book).success(function(response){
-			window.location.href='#/books';
-		});
-	}
-
-	$scope.removeBook = function(id){
-		$http.delete('/api/books/'+id).success(function(response){
-			window.location.href='#/books';
-		});
-	}
+	$scope.initEmployeesCtrl();
 }]);

@@ -4,8 +4,6 @@ const mongoose = require('mongoose');
 var path = require('path');
 const database = require('./config/database');
 
-
-
 const app = express();
 app.use(express.static(path.join(__dirname, '../client')));
 const mongoDB = database.url;

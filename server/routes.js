@@ -12,6 +12,17 @@ module.exports = function(app) {
                 console.error(err);
             }
             res.json(employees);
-        })
+        });
+    });
+
+    //delete Employee Data
+    app.delete('/api/employee/:firstName',(req,res) =>{
+        let firstName  = req.params.firstName;
+        EmployeesData.deleteEmployeeData(firstName,(err,employee)=>{
+            if(err){
+                console.error(err);
+            }
+            res.json(employee);
+        });
     });
 };

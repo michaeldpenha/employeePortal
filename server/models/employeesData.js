@@ -16,3 +16,10 @@ let EmployeesData = module.exports = mongoose.model('employees',employeesSchema)
 module.exports.getEmployeesData = (callback,limit) =>{
     EmployeesData.find(callback).limit(limit);
 }
+
+// Delete Employee Data
+
+module.exports.deleteEmployeeData = (firstName,callback) =>{
+    let query = {"first_name": firstName};
+    EmployeesData.remove(query,callback);
+}
