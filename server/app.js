@@ -1,10 +1,17 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
+const port = 3000;
 var path = require('path');
 const database = require('./config/database');
 
 const app = express();
+
+app.use(bodyParser.urlencoded({'extended': 'true'})); // parse application/x-www-form-urlencoded
+app.use(bodyParser.json()); // parse application/json
+app.use(bodyParser.json({type: 'application/vnd.api+json'})); // parse application/vnd.api+json as json
+
+
 app.use(express.static(path.join(__dirname, '../client')));
 const mongoDB = database.url;
 
@@ -21,5 +28,5 @@ db.on('connected', function() {
 
 require('./routes')(app);
 
-app.listen(3000);
+app.listen(port);
 console.log('Running on port 3000 ....')

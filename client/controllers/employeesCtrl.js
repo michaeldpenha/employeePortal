@@ -21,5 +21,8 @@ app.controller('employeesCtrl', ['$scope', '$http', '$location', '$routeParams',
 			console.log(error);
 		});
 	}
+	$scope.addEmployee = function(){
+		$location.path('/addEmployee');
+	}
 	$scope.initEmployeesCtrl();
 }]);

@@ -25,4 +25,27 @@ module.exports = function(app) {
             res.json(employee);
         });
     });
+
+    //add Employees Data
+    app.post('/api/employee',(req,res) =>{
+        var employee = req.body;
+        EmployeesData.addEmployeeData(employee,(err,employee)=>{
+            if(err){
+                res.json(err);
+            }
+            res.json(employee);
+        });
+    });
+
+    // Update Employee Data
+    app.put('/api/employee/:id',(req,res) =>{
+        var id = req.params.id;
+        var employee = req.body;
+        EmployeesData.updateEmployeeData(id,employee,{},(err,employee)=>{
+            if(err){
+                res.json(err);
+            }
+            res.json(employee);
+        });
+    });
 };
